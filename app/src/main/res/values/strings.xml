@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">DaggerPractice</string>
+    <string name="Logout">logout</string>
+    <string name="user_id">User id</string>
+    <string name="description">Description</string>
+    <string name="login">Login</string>
+</resources>
