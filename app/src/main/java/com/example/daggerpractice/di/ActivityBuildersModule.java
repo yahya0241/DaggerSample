@@ -2,16 +2,13 @@ package com.example.daggerpractice.di;
 
 import com.example.daggerpractice.di.auth.AuthModule;
 import com.example.daggerpractice.di.auth.AuthViewModelsModule;
+import com.example.daggerpractice.di.main.MainFragmentBuilderModule;
+import com.example.daggerpractice.di.main.MainViewModelsModule;
 import com.example.daggerpractice.ui.auth.AuthActivity;
 import com.example.daggerpractice.ui.main.MainActivity;
 
-import dagger.Binds;
 import dagger.Module;
-import dagger.Subcomponent;
-import dagger.android.AndroidInjector;
 import dagger.android.ContributesAndroidInjector;
-import dagger.multibindings.ClassKey;
-import dagger.multibindings.IntoMap;
 
 @Module
 public abstract class ActivityBuildersModule {
@@ -21,7 +18,9 @@ public abstract class ActivityBuildersModule {
     abstract AuthActivity contributeAuthActivity();
 
 
-    @ContributesAndroidInjector
+    @ContributesAndroidInjector(
+            modules = {MainFragmentBuilderModule.class, MainViewModelsModule.class}
+    )
     abstract MainActivity contributeMainActivity();
 
 }
