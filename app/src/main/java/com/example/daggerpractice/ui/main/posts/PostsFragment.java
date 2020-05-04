@@ -15,12 +15,12 @@ import com.example.daggerpractice.viewmodels.ViewModelProviderFactory;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.inject.Provider;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import dagger.android.support.DaggerFragment;
 
@@ -37,7 +37,7 @@ public class PostsFragment extends DaggerFragment {
     VerticalSpaceItemDecoration spaceItemDecoration;
 
     @Inject
-    LinearLayoutManager layoutManager;
+    Provider<RecyclerView.LayoutManager> layoutManagerProvider;
 
     @Inject
     ViewModelProviderFactory providerFactory;
@@ -84,7 +84,7 @@ public class PostsFragment extends DaggerFragment {
     }
 
     private void initRecyclerView() {
-        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setLayoutManager(layoutManagerProvider.get());
         recyclerView.addItemDecoration(spaceItemDecoration);
         recyclerView.setAdapter(recyclerAdapter);
     }

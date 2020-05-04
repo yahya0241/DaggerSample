@@ -7,6 +7,7 @@ import com.example.daggerpractice.ui.main.posts.PostRecyclerAdapter;
 import com.example.daggerpractice.util.VerticalSpaceItemDecoration;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import dagger.Module;
 import dagger.Provides;
 import retrofit2.Retrofit;
@@ -29,7 +30,7 @@ public class MainModule {
     }
 
     @Provides
-    public LinearLayoutManager getLayoutManager(Application application){
+    public static RecyclerView.LayoutManager getLayoutManager(Application application) {
         return new LinearLayoutManager(application);
     }
 }

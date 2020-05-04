@@ -4,4 +4,8 @@
     <string name="user_id">User id</string>
     <string name="description">Description</string>
     <string name="login">Login</string>
+    <string name="posts">Posts</string>
+    <string name="profile">Profile</string>
+    <string name="fragment_profile">profile fragment</string>
+    <string name="fragment_posts">post fragment</string>
 </resources>
