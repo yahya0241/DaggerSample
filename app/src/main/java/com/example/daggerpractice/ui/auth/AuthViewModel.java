@@ -10,10 +10,7 @@ import javax.inject.Inject;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.LiveDataReactiveStreams;
-import androidx.lifecycle.MediatorLiveData;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModel;
-import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
@@ -29,7 +26,6 @@ public class AuthViewModel extends ViewModel {
     public AuthViewModel(AuthApi authApi, SessionManager sessionManager) {
         this.sessionManager = sessionManager;
         this.authApi = authApi;
-        Log.d(TAG, "AuthViewModel: viewmodel is working...");
     }
 
     public LiveData<AuthResource<User>> observeAuthState(){

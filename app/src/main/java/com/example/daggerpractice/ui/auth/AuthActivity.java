@@ -1,9 +1,5 @@
 package com.example.daggerpractice.ui.auth;
 
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
-import dagger.android.support.DaggerAppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -22,6 +18,10 @@ import com.example.daggerpractice.ui.main.MainActivity;
 import com.example.daggerpractice.viewmodels.ViewModelProviderFactory;
 
 import javax.inject.Inject;
+
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
+import dagger.android.support.DaggerAppCompatActivity;
 
 public class AuthActivity extends DaggerAppCompatActivity implements View.OnClickListener {
 
@@ -94,7 +94,6 @@ public class AuthActivity extends DaggerAppCompatActivity implements View.OnClic
     }
 
     private void onLoginSuccess(){
-        Log.d(TAG, "onLoginSuccess: login successful!");
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
@@ -118,9 +117,7 @@ public class AuthActivity extends DaggerAppCompatActivity implements View.OnClic
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-
             case R.id.login_button:{
-
                 attemptLogin();
                 break;
             }
