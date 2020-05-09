@@ -1,10 +1,11 @@
-package com.example.daggerpractice;
+package com.example.daggerpractice.ui;
 
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.example.daggerpractice.SessionManager;
 import com.example.daggerpractice.models.User;
 import com.example.daggerpractice.ui.auth.AuthActivity;
 import com.example.daggerpractice.ui.auth.AuthResource;

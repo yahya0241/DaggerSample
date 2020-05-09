@@ -7,9 +7,10 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.daggerpractice.R;
-import com.example.daggerpractice.SessionManager;
+import com.example.daggerpractice.models.User;
 import com.example.daggerpractice.util.Constants;
 
+import javax.inject.Named;
 import javax.inject.Singleton;
 
 import androidx.core.content.ContextCompat;
@@ -24,7 +25,7 @@ public class AppModule {
 
     @Singleton
     @Provides
-    static Retrofit provideRetrofitInstance(){
+    static Retrofit provideRetrofitInstance() {
         return new Retrofit.Builder()
                 .baseUrl(Constants.BASE_URL)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
@@ -34,7 +35,7 @@ public class AppModule {
 
     @Singleton
     @Provides
-    static RequestOptions provideRequestOptions(){
+    static RequestOptions provideRequestOptions() {
         return RequestOptions
                 .placeholderOf(R.drawable.white_background)
                 .error(R.drawable.white_background);
@@ -42,17 +43,24 @@ public class AppModule {
 
     @Singleton
     @Provides
-    static RequestManager provideGlideInstance(Application application, RequestOptions requestOptions){
+    static RequestManager provideGlideInstance(Application application, RequestOptions requestOptions) {
         return Glide.with(application)
                 .setDefaultRequestOptions(requestOptions);
     }
 
     @Singleton
     @Provides
-    static Drawable provideAppDrawable(Application application){
+    static Drawable provideAppDrawable(Application application) {
         return ContextCompat.getDrawable(application, R.drawable.logo);
     }
 
+
+    @Singleton
+    @Provides
+    @Named("app_user")
+    static User getUserSample() {
+        return new User();
+    }
 }
 
 

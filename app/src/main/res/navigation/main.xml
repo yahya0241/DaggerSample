@@ -9,12 +9,12 @@
         android:id="@+id/profileScreen"
         android:name="com.example.daggerpractice.ui.main.profile.ProfileFragment"
         android:label="@string/fragment_profile"
-        tools:layout="@layout/fragment_profile"></fragment>
+        tools:layout="@layout/fragment_profile" />
 
     <fragment
         android:id="@+id/postsScreen"
         android:name="com.example.daggerpractice.ui.main.posts.PostsFragment"
         android:label="@string/fragment_posts"
-        tools:layout="@layout/fragment_posts"></fragment>
+        tools:layout="@layout/fragment_posts" />
 
 </navigation>

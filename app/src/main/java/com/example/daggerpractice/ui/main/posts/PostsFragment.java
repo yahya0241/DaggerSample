@@ -8,9 +8,9 @@ import android.view.ViewGroup;
 
 import com.example.daggerpractice.R;
 import com.example.daggerpractice.models.Post;
+import com.example.daggerpractice.ui.BaseFragment;
 import com.example.daggerpractice.ui.main.Resource;
 import com.example.daggerpractice.util.VerticalSpaceItemDecoration;
-import com.example.daggerpractice.viewmodels.ViewModelProviderFactory;
 
 import java.util.List;
 
@@ -20,11 +20,10 @@ import javax.inject.Provider;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
-import dagger.android.support.DaggerFragment;
 
-public class PostsFragment extends DaggerFragment {
+public class PostsFragment extends BaseFragment {
     private static final String TAG = "PostsFragment";
 
     private RecyclerView recyclerView;
@@ -40,7 +39,7 @@ public class PostsFragment extends DaggerFragment {
     Provider<RecyclerView.LayoutManager> layoutManagerProvider;
 
     @Inject
-    ViewModelProviderFactory providerFactory;
+    ViewModelProvider mViewModelProvider;
 
     @Nullable
     @Override
@@ -52,7 +51,7 @@ public class PostsFragment extends DaggerFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         recyclerView = view.findViewById(R.id.recycler_view);
-        viewModel = ViewModelProviders.of(this, providerFactory).get(PostsViewModel.class);
+        viewModel = mViewModelProvider.get(PostsViewModel.class);
 
         initRecyclerView();
         subscribeObserver();

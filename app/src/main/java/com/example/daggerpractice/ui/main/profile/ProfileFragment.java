@@ -8,24 +8,24 @@ import android.widget.TextView;
 
 import com.example.daggerpractice.R;
 import com.example.daggerpractice.models.User;
+import com.example.daggerpractice.ui.BaseFragment;
 import com.example.daggerpractice.ui.auth.AuthResource;
-import com.example.daggerpractice.viewmodels.ViewModelProviderFactory;
 
 import javax.inject.Inject;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
-import dagger.android.support.DaggerFragment;
+import androidx.lifecycle.ViewModelProvider;
 
-public class ProfileFragment extends DaggerFragment {
+public class ProfileFragment extends BaseFragment {
     private static final String TAG = "ProfileFragment";
 
     private ProfileViewModel viewModel;
     private TextView userName, email, website;
+
     @Inject
-    ViewModelProviderFactory providerFactory;
+    ViewModelProvider viewModelProvider;
 
     @Nullable
     @Override
@@ -38,7 +38,7 @@ public class ProfileFragment extends DaggerFragment {
         userName = view.findViewById(R.id.username);
         email = view.findViewById(R.id.email);
         website = view.findViewById(R.id.website);
-        viewModel = ViewModelProviders.of(this, providerFactory).get(ProfileViewModel.class);
+        viewModel = viewModelProvider.get(ProfileViewModel.class);
         subscribeObservers();
     }
 
@@ -65,8 +65,8 @@ public class ProfileFragment extends DaggerFragment {
 
     private void setErrorDetail(String message) {
         email.setText(message);
-        userName.setText("error");
-        website.setText("error");
+        userName.setText(R.string.error);
+        website.setText(R.string.error);
     }
 
     private void setUserDetail(User user) {

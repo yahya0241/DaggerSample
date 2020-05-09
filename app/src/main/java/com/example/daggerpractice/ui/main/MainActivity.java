@@ -5,8 +5,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import com.example.daggerpractice.BaseActivity;
 import com.example.daggerpractice.R;
+import com.example.daggerpractice.ui.BaseActivity;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
