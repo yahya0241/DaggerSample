@@ -21,6 +21,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class PostsFragment extends BaseFragment {
@@ -83,7 +84,7 @@ public class PostsFragment extends BaseFragment {
     }
 
     private void initRecyclerView() {
-        recyclerView.setLayoutManager(layoutManagerProvider.get());
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity())/*layoutManagerProvider.get()*/);
         recyclerView.addItemDecoration(spaceItemDecoration);
         recyclerView.setAdapter(recyclerAdapter);
     }
